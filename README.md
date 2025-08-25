@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# Dope Security FE Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend assignment implementation using **React (Vite)**, **TypeScript**, **React Query**, **Zustand**, **Shadcn UI**, and **JSON Server**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **Data Source**: Mock API served by JSON Server with **1200+ character records**.
+- **Table View**:
+  - Columns: **Select**, **Name**, **Location**, **Health**, **Power**.
+  - **Search** (by name or location).
+  - **Health filter** (multi-select dropdown in column header).
+  - **Sort by Power** (toggle ASC/DESC).
+  - **Select all / per row checkboxes**.
+  - **Viewed State**:
+    - Mark selected rows as *viewed*.
+    - Viewed rows styled subtly (`bg-gray-50 text-gray-400 italic`).
+  - **Power Visual**: Gradient progress bar reflecting power value.
+  - **Health Badges**:
+    - Healthy → Green
+    - Injured → Yellow
+    - Critical → Red
+  - **Sticky Header** with scrollable body (viewport max height).
+  - **Row & cell borders** with light theme styling.
+- **State Management**:
+  - React Query for server state.
+  - Zustand for UI state (selectedIds, viewedIds, filters, search, sorting).
+- **UI Components**: Built with [shadcn/ui](https://ui.shadcn.com/).
+- **Error & Loading states** handled gracefully.
+- **Testing**:
+  - Jest + React Testing Library.
+  - Tests for rendering, search, filter, select/mark viewed.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- [React 18 + Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Query](https://tanstack.com/query)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [JSON Server](https://github.com/typicode/json-server)
+- [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone & Install
+```bash
+git clone <repo-url>
+cd dope-security-FE-task
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+2. Generate Mock Data
+node generate-db.js
+
+
+This creates db.json with 1200+ characters.
+
+3. Run Dev Environment
+
+Start JSON Server and Vite dev server together:
+
+npm run dev:all
+
+
+JSON Server → http://localhost:3001/characters
+
+React App → http://localhost:5173/
+
+
+## 📖 Summary
+
+This project is a frontend assignment built with **React, TypeScript, React Query, Zustand, Tailwind CSS, and Shadcn UI**, powered by a **JSON Server mock API**.  
+
+It implements a **Character Management Table** that allows users to:  
+- View 1200+ mock characters with attributes (`name`, `location`, `health`, `power`).  
+- **Search** by name or location.  
+- **Filter** characters by health status (Healthy, Injured, Critical).  
+- **Sort** by power (ascending/descending).  
+- **Select rows** individually or via "Select All".  
+- **Mark selected rows as viewed**, with subtle styling for viewed entries.  
+- See **power represented visually** using a gradient progress bar.  
+- Enjoy a responsive, scrollable table with sticky headers and light-theme styling.  
+
+The project also includes **Jest + React Testing Library** tests to verify rendering, search, filtering, and row selection functionality.  
