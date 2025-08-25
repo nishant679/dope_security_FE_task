@@ -2,6 +2,9 @@
 
 Frontend assignment implementation using **React (Vite)**, **TypeScript**, **React Query**, **Zustand**, **Shadcn UI**, and **JSON Server**.  
 
+<img width="3102" height="1216" alt="image" src="https://github.com/user-attachments/assets/5eab679b-325b-46de-ae0a-04babd79e983" />
+
+
 ---
 
 ## 🚀 Features
