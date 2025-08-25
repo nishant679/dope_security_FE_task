@@ -10,5 +10,10 @@
       "@/components/*": ["src/components/*"],
       "@/lib/*": ["src/lib/*"]
     },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",   // <-- this also fixes your JSX errors
+    "types": ["jest", "node"]
   }
 }
+
